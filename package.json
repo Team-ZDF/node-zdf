@@ -14,5 +14,6 @@
   "dependencies": {
     "fstream": "^1.0.7",
     "tar": "^2.1.1"
-  }
+  },
+  "repository": "Team-ZDF/node-zdf"
 }
