@@ -1,7 +1,7 @@
 var fs = require('fs');
 var fstream = require('fstream');
 var path = require('path');
-var zdf = require('../zdf.js');
+var zdf = require('../zdf');
 
 var sourceDirectory = path.join(__dirname, 'how-to-spy');
 
