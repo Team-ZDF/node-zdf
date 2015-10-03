@@ -2,7 +2,7 @@ var packageJson = require('./package.json');
 var security = require('./lib/security');
 
 module.exports = {
-  createPackageStream: require('./lib/package-stream'),
+  PackageStream: require('./lib/package-stream'),
   decrypt: security.decrypt,
   encrypt: security.encrypt,
   read: require('./lib/reader'),

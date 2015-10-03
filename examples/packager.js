@@ -13,17 +13,17 @@ var destinationStream = fs.createWriteStream(path.join(__dirname, 'how-to-spy.zd
     console.log('Write Complete');
   });
 
-zdf.package(sourceDirectory)
-  .on('error', function(err) {
-    console.error('ZDF error occurred: ', err);
-  })
-  .pipe(destinationStream);
-
-// var packageStream = zdf.createPackageStream();
-//
-// fstream.Reader({
-//     path: sourceDirectory,
-//     type: 'Directory'
+// zdf.package(sourceDirectory)
+//   .on('error', function(err) {
+//     console.error('ZDF error occurred: ', err);
 //   })
-//   .pipe(packageStream)
 //   .pipe(destinationStream);
+
+var packageStream = new zdf.PackageStream();
+
+fstream.Reader({
+    path: sourceDirectory,
+    type: 'Directory'
+  })
+  .pipe(packageStream)
+  .pipe(destinationStream);
