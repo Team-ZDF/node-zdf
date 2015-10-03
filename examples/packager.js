@@ -32,7 +32,7 @@ inputStream.pipe(zdfWriteStream); // This returns `zdfWriteStream` so you can ch
 //   source: inputStream
 // });
 
-var destinationStream = fs.createWriteStream(path.join(__dirname, 'how-to-spy.tar.gz'))
+var destinationStream = fs.createWriteStream(path.join(__dirname, 'how-to-spy.zdf'))
   .on('error', (err) => console.error('Destination error occurred: ', err))
   .on('finish', () => console.log('Write Complete'));
 
