@@ -22,7 +22,9 @@ var destinationStream = fs.createWriteStream(path.join(__dirname, 'secret.zdf'))
   .on('finish', () => console.log('Write Complete'));
 
 var zdfWriteStream = new zdf.PackageWriteStream({
-  publicKey: publicKey
+  publicKey: publicKey,
+  privateKey: privateKey,
+  privateKeyPassphrase: privateKeyPassphrase
 });
 inputStream.pipe(zdfWriteStream)
   .on('error', (err) => console.error('ZDF error occurred: ', err))
@@ -35,7 +37,10 @@ var inputStream = fs.createReadStream(filename);
 
 var zdfReadStream = new zdf.PackageReadStream({
   privateKey: privateKey,
-  privateKeyPassphrase: privateKeyPassphrase
+  privateKeyPassphrase: privateKeyPassphrase,
+  publicKey: publicKey
+}).on('error', (e) => {
+  console.error(e);
 });
 
 inputStream.pipe(zdfReadStream).on('entry', (entry) => {
@@ -46,4 +51,6 @@ inputStream.pipe(zdfReadStream).on('entry', (entry) => {
   // `zdfInfo` will be an object with `files` as a hash of entries and
   // `manifest` as the ZDF manifest data
   console.log('zdfInfo', zdfInfo);
+}).on('error', (e) => {
+  console.error(e);
 });
