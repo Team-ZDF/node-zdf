@@ -39,8 +39,6 @@ var zdfReadStream = new zdf.PackageReadStream({
   privateKey: privateKey,
   privateKeyPassphrase: privateKeyPassphrase,
   publicKey: publicKey
-}).on('error', (e) => {
-  console.error(e);
 });
 
 inputStream.pipe(zdfReadStream).on('entry', (entry) => {
