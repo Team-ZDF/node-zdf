@@ -9,11 +9,11 @@
   "keywords": [
     "zdf"
   ],
-  "author": "Tyler Benfield <rtbenfield@gmail.com> (http://rtblogfield.appspot.com/)",
+  "author": "Tyler Benfield <rtbenfield@gmail.com> (http://tylerbenfield.me/)",
   "license": "MIT",
   "dependencies": {
-    "fstream": "^1.0.8",
-    "kbpgp": "^2.0.47",
+    "fstream": "^1.0.9",
+    "kbpgp": "^2.0.54",
     "tar": "^2.2.1"
   },
   "repository": "Team-ZDF/node-zdf"
